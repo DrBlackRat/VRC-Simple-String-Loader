@@ -40,17 +40,18 @@ namespace DrBlackRat
         [Tooltip("Skips the Loading String when reloading the String (e.g. Auto Reload or Manually Loading it again)")]
         [SerializeField] private bool skipLoadingStringOnReload = false;
         [Tooltip("String used while the String is Loading")] [TextAreaAttribute]
-        [SerializeField] private string loadingString;
+        [SerializeField] private string loadingString = "Loading...";
         [Space(10)]
         [Tooltip("Use the Error String when the String couldn't be Loaded")]
         [SerializeField] private bool useErrorString = true;
         [Tooltip("String used when the String couldn't be Loaded")] [TextAreaAttribute]
-        [SerializeField] private string errorString;
+        [SerializeField] private string errorString = "Error: String couldn't be loaded, view logs for more info";
 
         // Internals
         [HideInInspector]
-        public string loadedString;
+        public string currentString;
         private bool loading = false;
+        private int timesRun = 0;
 
         void Start()
         {
@@ -67,48 +68,57 @@ namespace DrBlackRat
             // Check if it's already loading
             if (loading)
             {
-                Debug.LogWarning($"[Simple String Loader] String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
+                Debug.LogWarning($"[<color=#34cfeb>Simple String Loader</color>] String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
                 return;
             }
             // Load String
             if (url == null || string.IsNullOrEmpty(url.Get()))
             {
-                Debug.LogError("[Simple String Loader] URL is empty!");
+                Debug.LogError("[<color=#34cfeb>Simple String Loader</color>] URL is empty!");
+                if (useErrorString) _ApplyString(errorString);
                 return;
             }
             loading = true;
-            Debug.Log($"[Simple String Loader] Laoading String from [{url}]");
+            Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Loading String from [{url}]");
+            // Loading String
+            if (useLoadingString && timesRun == 0 || useLoadingString && timesRun >= 1 && !skipLoadingStringOnReload)
+            {
+                _ApplyString(loadingString);
+            }
             VRCStringDownloader.LoadUrl(url, (IUdonEventReceiver)this);
         }
         public void _ApplyString(string useString)
         {
-            if (text != null) text.text = loadedString;
-            if (textMeshPro != null) textMeshPro.text = loadedString;
-            if (textMeshProUGUI != null) textMeshProUGUI.text = loadedString;
+            currentString = useString;
+            if (text != null) text.text = useString;
+            if (textMeshPro != null) textMeshPro.text = useString;
+            if (textMeshProUGUI != null) textMeshProUGUI.text = useString;
         }
         public override void OnStringLoadSuccess(IVRCStringDownload result)
         {
+            timesRun++;
             loading = false;
-            Debug.Log($"[Simple String Loader] String from [{url}] Loaded Successfully!");
-            // Apply String
+            Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] String from [{url}] Loaded Successfully!");
             _ApplyString(result.Result);
             // Auto Reload
             if (autoReload)
             {
                 SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                Debug.Log($"[Simple String Loader] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
+                Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
             }
         }
 
         public override void OnStringLoadError(IVRCStringDownload result)
         {
+            timesRun++;
             loading = false;
-            Debug.LogError($"[Simple String Loader] Could not Load String [{url}] because: {result.Error}");
+            Debug.LogError($"[<color=#34cfeb>Simple String Loader</color>] Could not Load String [{url}] because: {result.Error}");
+            if (useErrorString) _ApplyString(errorString);
             // Auto Reload
             if (autoReload)
             {
                 SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                Debug.Log($"[Simple String Loader] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
+                Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
             }
         }
     }
