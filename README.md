@@ -10,7 +10,7 @@ __What does it do?__
 - Apply string to Text, Text Mesh Pro and Text Mesh Pro UGUI components
 - Use a separate string while Loading
 - Use a separate string if you encounter an error
-- Optionally: Allows you to control it through Udon#
+- Optionally: Allows you to control it through Udon# (this is very WIP)
 
 __How to use:__
 - add the Unity Package to your Project
