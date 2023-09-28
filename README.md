@@ -1,10 +1,11 @@
 # VRC-Simple-String-Loader
 This script adds a lot of additional features to VRChat's String Loader!
 
-![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/bebb1587-9edb-4615-8373-0b4f87561e03)
+![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/046ef6be-8fd8-4d6b-877a-be4dc158ffd3)
 
 It even has some nice log messages :D
-![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/77f54502-6246-480f-9fba-4cd4d0caad63)
+![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/3a235a30-99f3-45ad-abdf-c6491ea47dee)
+
 
 __What does it do?__
 - Loads Strings from the Web into the client
