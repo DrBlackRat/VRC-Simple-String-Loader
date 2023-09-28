@@ -38,13 +38,13 @@ namespace DrBlackRat
         [Tooltip("Use the Loading String while it waits for the String to Load")]
         [SerializeField] private bool useLoadingString = true;
         [Tooltip("Skips the Loading String when reloading the String (e.g. Auto Reload or Manually Loading it again)")]
-        [SerializeField] private bool skipLoadingStringOnReload = false;
-        [Tooltip("String used while the String is Loading")] [TextAreaAttribute]
+        [SerializeField] private bool skipLoadingStringOnReload = true;
+        [Tooltip("String used while the String is Loading")] [TextArea]
         [SerializeField] private string loadingString = "Loading...";
         [Space(10)]
         [Tooltip("Use the Error String when the String couldn't be Loaded")]
         [SerializeField] private bool useErrorString = true;
-        [Tooltip("String used when the String couldn't be Loaded")] [TextAreaAttribute]
+        [Tooltip("String used when the String couldn't be Loaded")] [TextArea]
         [SerializeField] private string errorString = "Error: String couldn't be loaded, view logs for more info";
 
         // Internals

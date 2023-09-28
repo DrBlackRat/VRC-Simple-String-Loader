@@ -14,6 +14,7 @@ What does it do?
 How to use:
 - add the Unity Package to your Project
 - add the Simple Picture Loader script to what ever gameobject you want the string to be loaded on
+- add Text Mesh Pro if it asks you to
 
 You can also take a look at the Example Scene & Prefab if you want to see how it can be used.
 
