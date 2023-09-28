@@ -536,8 +536,8 @@ MonoBehaviour:
       Data: 37|UnityEngine.TooltipAttribute, UnityEngine.CoreModule
     - Name: tooltip
       Entry: 1
-      Data: Text Mesh Pro UI component the string should be applied to, if left empty
-        it tires to use the one it's attached to
+      Data: Text Mesh Pro UGUI component the string should be applied to, if left
+        empty it tires to use the one it's attached to
     - Name: 
       Entry: 8
       Data: 

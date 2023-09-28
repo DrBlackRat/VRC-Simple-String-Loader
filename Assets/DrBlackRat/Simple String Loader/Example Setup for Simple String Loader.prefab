@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7340049052784874810}
   - component: {fileID: 7340049052784874813}
   m_Layer: 0
-  m_Name: Simple String Loader Example
+  m_Name: Example Setup for Simple String Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,13 +65,13 @@ MonoBehaviour:
   url:
     url: https://pastebin.com/raw/R5tRkZyD
   loadOnStart: 1
-  autoReload: 0
+  autoReload: 1
   autoReloadTime: 10
   text: {fileID: 0}
   textMeshPro: {fileID: 0}
   textMeshProUGUI: {fileID: 0}
   useLoadingString: 1
-  skipLoadingStringOnReload: 0
+  skipLoadingStringOnReload: 1
   loadingString: Loading...
   useErrorString: 1
   errorString: 'Error: String couldn''t be loaded, view logs for more info'

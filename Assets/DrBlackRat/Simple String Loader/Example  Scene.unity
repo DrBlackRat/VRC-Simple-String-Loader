@@ -585,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 7340049052784874814, guid: 743c06cdfce70324d8802e23a1b5b1d7,
         type: 3}
       propertyPath: m_Name
-      value: Simple String Loader Example
+      value: Example Setup for Simple String Loader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743c06cdfce70324d8802e23a1b5b1d7, type: 3}

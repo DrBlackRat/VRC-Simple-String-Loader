@@ -31,7 +31,7 @@ namespace DrBlackRat
         [SerializeField] private Text text;
         [Tooltip("Text Mesh Pro component the string should be applied to, if left empty it tires to use the one it's attached to")]
         [SerializeField] private TextMeshPro textMeshPro;
-        [Tooltip("Text Mesh Pro UI component the string should be applied to, if left empty it tires to use the one it's attached to")]
+        [Tooltip("Text Mesh Pro UGUI component the string should be applied to, if left empty it tires to use the one it's attached to")]
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
         [Header("Loadig & Error String")]
