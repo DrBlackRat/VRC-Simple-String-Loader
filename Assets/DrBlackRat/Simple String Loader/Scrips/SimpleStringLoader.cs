@@ -107,7 +107,7 @@ namespace DrBlackRat
         {
             timesRun++;
             loading = false;
-            SSLDebug.LogError($"Could not Load String [{url}] because: {result.Error}");
+            SSLDebug.LogError($"Could not Load String from [{url}] because: {result.Error}");
             if (useErrorString) ApplyString(errorString);
             // Auto Reload
             if (autoReload)
