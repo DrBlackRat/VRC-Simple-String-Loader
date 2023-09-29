@@ -64,14 +64,14 @@ namespace DrBlackRat
             // Check if it's already loading
             if (loading)
             {
-                SSLDebug.Warning($"String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
+                SSLDebug.LogWarning($"String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
                 return;
             }
             // Load String
             if (url == null || string.IsNullOrEmpty(url.Get()))
             {
                 SSLDebug.LogError($"URL is empty!");
-                if (useErrorString) _ApplyString(errorString);
+                if (useErrorString) ApplyString(errorString);
                 return;
             }
             loading = true;
