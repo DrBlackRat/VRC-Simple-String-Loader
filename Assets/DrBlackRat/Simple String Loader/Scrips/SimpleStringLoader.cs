@@ -2,10 +2,8 @@
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using VRC.SDK3.StringLoading;
 using VRC.SDKBase;
-using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
 namespace DrBlackRat
@@ -68,18 +66,18 @@ namespace DrBlackRat
             // Check if it's already loading
             if (loading)
             {
-                Debug.LogWarning($"[<color=#34cfeb>Simple String Loader</color>] String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
+                SSLDebug.Log($"String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
                 return;
             }
             // Load String
             if (url == null || string.IsNullOrEmpty(url.Get()))
             {
-                Debug.LogError("[<color=#34cfeb>Simple String Loader</color>] URL is empty!");
+                SSLDebug.LogError($"URL is empty!");
                 if (useErrorString) _ApplyString(errorString);
                 return;
             }
             loading = true;
-            Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Loading String from [{url}]");
+            SSLDebug.Log($"Loading String from [{url}]");
             // Loading String
             if (useLoadingString && timesRun == 0 || useLoadingString && timesRun >= 1 && !skipLoadingStringOnReload)
             {
@@ -98,13 +96,13 @@ namespace DrBlackRat
         {
             timesRun++;
             loading = false;
-            Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] String from [{url}] Loaded Successfully!");
+            SSLDebug.Log($"String from [{url}] Loaded Successfully!");
             _ApplyString(result.Result);
             // Auto Reload
             if (autoReload)
             {
                 SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
+                SSLDebug.Log($"Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
             }
         }
 
@@ -112,13 +110,13 @@ namespace DrBlackRat
         {
             timesRun++;
             loading = false;
-            Debug.LogError($"[<color=#34cfeb>Simple String Loader</color>] Could not Load String [{url}] because: {result.Error}");
+            SSLDebug.LogError($"Could not Load String [{url}] because: {result.Error}");
             if (useErrorString) _ApplyString(errorString);
             // Auto Reload
             if (autoReload)
             {
                 SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                Debug.Log($"[<color=#34cfeb>Simple String Loader</color>] Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
+                SSLDebug.Log($"Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
             }
         }
     }
