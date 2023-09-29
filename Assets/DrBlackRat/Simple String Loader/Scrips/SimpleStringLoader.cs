@@ -46,12 +46,10 @@ namespace DrBlackRat
         [SerializeField] private string errorString = "Error: String couldn't be loaded, view logs for more info";
 
         // Internals
-        [HideInInspector]
-        public string currentString;
         private bool loading = false;
         private int timesRun = 0;
 
-        void Start()
+        private void Start()
         {
             // Get Components
             if (text == null) text = GetComponent<Text>();
@@ -85,9 +83,8 @@ namespace DrBlackRat
             }
             VRCStringDownloader.LoadUrl(url, (IUdonEventReceiver)this);
         }
-        public void _ApplyString(string useString)
+        private void _ApplyString(string useString)
         {
-            currentString = useString;
             if (text != null) text.text = useString;
             if (textMeshPro != null) textMeshPro.text = useString;
             if (textMeshProUGUI != null) textMeshProUGUI.text = useString;

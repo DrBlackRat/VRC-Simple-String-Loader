@@ -75,7 +75,6 @@ MonoBehaviour:
   loadingString: Loading...
   useErrorString: 1
   errorString: 'Error: String couldn''t be loaded, view logs for more info'
-  currentString: 
 --- !u!114 &7340049052784874815
 MonoBehaviour:
   m_ObjectHideFlags: 0
