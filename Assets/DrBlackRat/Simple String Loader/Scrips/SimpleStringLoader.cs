@@ -64,7 +64,7 @@ namespace DrBlackRat
             // Check if it's already loading
             if (loading)
             {
-                SSLDebug.Log($"String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
+                SSLDebug.Warning($"String from [{url}] is currently being downloaded, wait for it to be done before trying again!");
                 return;
             }
             // Load String
