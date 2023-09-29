@@ -79,11 +79,11 @@ namespace DrBlackRat
             // Loading String
             if (useLoadingString && timesRun == 0 || useLoadingString && timesRun >= 1 && !skipLoadingStringOnReload)
             {
-                _ApplyString(loadingString);
+                ApplyString(loadingString);
             }
             VRCStringDownloader.LoadUrl(url, (IUdonEventReceiver)this);
         }
-        private void _ApplyString(string useString)
+        private void ApplyString(string useString)
         {
             if (text != null) text.text = useString;
             if (textMeshPro != null) textMeshPro.text = useString;
@@ -94,7 +94,7 @@ namespace DrBlackRat
             timesRun++;
             loading = false;
             SSLDebug.Log($"String from [{url}] Loaded Successfully!");
-            _ApplyString(result.Result);
+            ApplyString(result.Result);
             // Auto Reload
             if (autoReload)
             {
@@ -108,7 +108,7 @@ namespace DrBlackRat
             timesRun++;
             loading = false;
             SSLDebug.LogError($"Could not Load String [{url}] because: {result.Error}");
-            if (useErrorString) _ApplyString(errorString);
+            if (useErrorString) ApplyString(errorString);
             // Auto Reload
             if (autoReload)
             {
