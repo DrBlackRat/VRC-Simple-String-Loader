@@ -1,6 +1,6 @@
 # xyz.drblackrat.simplestringloader by DrBlackRat
 
-VRC Simple String Loader V1.0.0
+VRC Simple String Loader V1.0.1
 
 Provides a script to easily download and display strings from the web.
 

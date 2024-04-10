@@ -7,7 +7,9 @@
     "VRC.SDKBase.Editor",
     "xyz.drblackrat.simplestringloader"
   ],
-  "includePlatforms": [],
+  "includePlatforms": [
+    "Editor"
+  ],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "autoReferenced": true,
