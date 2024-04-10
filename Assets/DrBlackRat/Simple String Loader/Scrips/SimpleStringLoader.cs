@@ -19,9 +19,9 @@ namespace DrBlackRat
         [SerializeField] private bool loadOnStart = true;
 
         [Space(10)]
-        [Tooltip("Automaically reload String after a certain ammount of time (Load On Start should be enabled for this)")]
+        [Tooltip("Automatically reload String after a certain amount of time (Load On Start should be enabled for this)")]
         [SerializeField] bool autoReload = false;
-        [Tooltip("Time in minutes after which the String should be redownloaded")]
+        [Tooltip("Time in minutes after which the String should be downloaded again")]
         [SerializeField] [Range(1, 60)] int autoReloadTime = 10;
 
         [Header("Text Components")]
@@ -32,7 +32,7 @@ namespace DrBlackRat
         [Tooltip("Text Mesh Pro UGUI component the string should be applied to, if left empty it tires to use the one it's attached to")]
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
-        [Header("Loadig & Error String")]
+        [Header("Loading & Error String")]
         [Tooltip("Use the Loading String while it waits for the String to Load")]
         [SerializeField] private bool useLoadingString = true;
         [Tooltip("Skips the Loading String when reloading the String (e.g. Auto Reload or Manually Loading it again)")]
@@ -89,32 +89,27 @@ namespace DrBlackRat
             if (textMeshPro != null) textMeshPro.text = useString;
             if (textMeshProUGUI != null) textMeshProUGUI.text = useString;
         }
+        private void AutoReload()
+        {
+            if (!autoReload) return;
+            SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
+            SSLDebug.Log($"Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
+        }
         public override void OnStringLoadSuccess(IVRCStringDownload result)
         {
             timesRun++;
             loading = false;
             SSLDebug.Log($"String from [{url}] Loaded Successfully!");
             ApplyString(result.Result);
-            // Auto Reload
-            if (autoReload)
-            {
-                SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                SSLDebug.Log($"Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
-            }
+            AutoReload();
         }
-
         public override void OnStringLoadError(IVRCStringDownload result)
         {
             timesRun++;
             loading = false;
             SSLDebug.LogError($"Could not Load String from [{url}] because: {result.Error}");
             if (useErrorString) ApplyString(errorString);
-            // Auto Reload
-            if (autoReload)
-            {
-                SendCustomEventDelayedSeconds("_LoadString", autoReloadTime * 60);
-                SSLDebug.Log($"Next Auto Reload for [{url}] in {autoReloadTime} minute(s)");
-            }
+            AutoReload();
         }
     }
 }
