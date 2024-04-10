@@ -1,27 +1,26 @@
 # VRC-Simple-String-Loader
-This script adds a lot of additional features to VRChat's String Loader!
+Provides a script to easily download and display strings from the web.
 
 ![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/046ef6be-8fd8-4d6b-877a-be4dc158ffd3)
 
-It even has some nice log messages :D
-![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/3a235a30-99f3-45ad-abdf-c6491ea47dee)
+## Download
+The VRC Simple String Loader is available via the [Creator Companion](https://vcc.docs.vrchat.com/) as a VPM package!
+###  [⬇️ My VPM / Creator Companion Listing](https://drblackrat.github.io/vpm-listing/)
 
-
-__What does it do?__
+## Here are the core features:
 - Loads Strings from the Web into the client
 - Automatically load them when you enter the World
 - Automatically redownload them after a certain amount of time
 - Apply string to Text, Text Mesh Pro and Text Mesh Pro UGUI components
 - Use a separate string while Loading
 - Use a separate string if you encounter an error
-- - allows you to change the URL and call _LoadString through Udon / Udon#
 
-__How to use:__
-- add the Unity Package to your Project
-- add the Simple Picture Loader script to what ever gameobject you want the string to be loaded on
-- add Text Mesh Pro if it asks you to
+## Setup:
+Take a look at the example prefab! You can find it at the top of the Unity Window under `Tools > Simple String Loader`.
 
-You can also take a look at the Example Scene & Prefab if you want to see how it can be used.
+- Add the Simple String Loader script to all gameobjects that you want to download strings for
+- Provide all Simple String Loaders with a download URL
+- Provide all Simple String Loaders with a Text, TextMeshPro and / or a TextMeshProUGUI component that the string should be applied to
 
-__This Asset was made by DrBlackRat:__
+**This Asset was made by DrBlackRat**
 https://drblackrat.xyz
