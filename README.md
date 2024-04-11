@@ -7,6 +7,8 @@ Provides a script to easily download and display strings from the web.
 The VRC Simple String Loader is available via the [Creator Companion](https://vcc.docs.vrchat.com/) as a VPM package!
 ###  [⬇️ My VPM / Creator Companion Listing](https://vpm.drblackrat.xyz)
 
+For Standalone Unity I still provide a Unity Package with every release.
+
 ## Here are the core features:
 - Loads Strings from the Web into the client
 - Automatically load them when you enter the World
