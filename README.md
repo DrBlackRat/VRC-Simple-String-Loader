@@ -5,7 +5,7 @@ Provides a script to easily download and display strings from the web.
 
 ## Download
 The VRC Simple String Loader is available via the [Creator Companion](https://vcc.docs.vrchat.com/) as a VPM package!
-###  [⬇️ My VPM / Creator Companion Listing](https://drblackrat.github.io/vpm-listing/)
+###  [⬇️ My VPM / Creator Companion Listing](https://vpm.drblackrat.xyz)
 
 ## Here are the core features:
 - Loads Strings from the Web into the client
