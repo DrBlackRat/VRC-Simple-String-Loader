@@ -3,7 +3,7 @@ Provides a script to easily download and display strings from the web.
 
 ![image](https://github.com/DrBlackRat/VRC-Simple-String-Loader/assets/46327609/046ef6be-8fd8-4d6b-877a-be4dc158ffd3)
 
-## Download
+# Download
 The VRC Simple String Loader is available via the [Creator Companion](https://vcc.docs.vrchat.com/) as a VPM package!
 ###  [⬇️ My VPM / Creator Companion Listing](https://vpm.drblackrat.xyz)
 
@@ -24,5 +24,9 @@ Take a look at the example prefab! You can find it at the top of the Unity Windo
 - Provide all Simple String Loaders with a download URL
 - Provide all Simple String Loaders with a Text, TextMeshPro and / or a TextMeshProUGUI component that the string should be applied to
 
-**This Asset was made by DrBlackRat**
+## Credits:
+#### This Asset was made by DrBlackRat:
 https://drblackrat.xyz
+
+#### If you like this, feel free to support me on Ko-fi!
+https://ko-fi.com/drblackrat
